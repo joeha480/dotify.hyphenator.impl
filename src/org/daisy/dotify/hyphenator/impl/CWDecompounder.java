@@ -1,7 +1,6 @@
 package org.daisy.dotify.hyphenator.impl;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,20 +39,20 @@ class CWDecompounder {
 		if (lowerLimit<1) {
 			throw new IllegalArgumentException("Decompound limit must not be lower than one.");
 		}
-		InputStream is = this.getClass().getResourceAsStream(url);
-		TextFileReader tfr = new TextFileReader(is);
-		LineData data;
-		while ((data=tfr.nextLine())!=null) {
-			int len = data.getFields()[0].length();
-			if (len < lowerLimit || data.getFields().length < 2) { continue; }
-			if (data.getFields().length>2) {
-				stems.put(data.getFields()[0], new CWHyphenationUnit(Integer.parseInt(data.getFields()[1])+1, data.getFields()[2]));
-			} else {
-				stems.put(data.getFields()[0], new CWHyphenationUnit(Integer.parseInt(data.getFields()[1])+1));
+		try (
+		
+		TextFileReader tfr = new TextFileReader(this.getClass().getResourceAsStream(url));) {
+			LineData data;
+			while ((data=tfr.nextLine())!=null) {
+				int len = data.getFields()[0].length();
+				if (len < lowerLimit || data.getFields().length < 2) { continue; }
+				if (data.getFields().length>2) {
+					stems.put(data.getFields()[0], new CWHyphenationUnit(Integer.parseInt(data.getFields()[1])+1, data.getFields()[2]));
+				} else {
+					stems.put(data.getFields()[0], new CWHyphenationUnit(Integer.parseInt(data.getFields()[1])+1));
+				}
 			}
 		}
-		tfr.close();
-		is.close();
 	}
 	
 	/**
