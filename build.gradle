@@ -73,6 +73,12 @@ jar {
 			'Repository-URL': "$repositoryURL",
 			'Include-Resource': 'LICENSE, NOTICE'
 		)
+}
+
+task updateBndVersion() {
+	doLast() {
+		String contents = file('bnd.bnd').getText('UTF-8')
+		file('bnd.bnd').write(contents.replaceAll('Bundle-Version: [\\d\\.A-Za-z\\-]+', "Bundle-Version: $version"), 'UTF-8')
 	}
 }
 
