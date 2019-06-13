@@ -22,8 +22,17 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 sourceSets {
-	main {	java { srcDir 'src' }	resources { srcDir 'src' } }
-	test {	java { srcDir 'test' }	resources { srcDir 'test' } }
+	main {
+		java { srcDir 'src' exclude '**/resource-files/**/*'}
+		resources { srcDir 'src' include '**/resource-files/**/*'}
+	}
+	test {
+		java { srcDir 'test' exclude '**/resource-files/**/*'}
+		resources { srcDir 'test' include '**/resource-files/**/*'} 
+	}
+	all {
+		tasks[processResourcesTaskName].includeEmptyDirs = false
+	}
 }
 
 compileJava {
@@ -62,8 +71,6 @@ jar {
 		attributes(
 			'-sources': 'true',
 			'Import-Package': 'org.daisy.dotify.api.hyphenator; provide:=true, *',
-			// See https://github.com/bndtools/bnd/issues/2677
-			// The split-package instruction is there because resource files are included separately on the classpath
 			//'Private-Package': 'org.daisy.dotify.hyphenator.*;-split-package:=merge-first',
 			'Automatic-Module-Name': "$moduleName",
 			'Bundle-Name': "$bundleName",

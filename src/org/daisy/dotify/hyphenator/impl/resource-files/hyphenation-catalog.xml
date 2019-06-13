@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>		
+	<comment>Paths to hyphenation configuration files.</comment>
+
+	<entry key="en">en-GB.xml</entry>	
+	<entry key="en-US">en-US.xml</entry>
+	<entry key="en-GB">en-GB.xml</entry>
+
+	<entry key="sv">sv.xml</entry>
+	<entry key="sv-SE">sv.xml</entry>
+
+	<entry key="no">no.xml</entry>
+	<entry key="no-NO">no.xml</entry>
+
+	<entry key="de">de.xml</entry>
+	<entry key="de-DE">de.xml</entry>
+
+	<entry key="fr">fr.xml</entry>
+	<entry key="fr-FR">fr.xml</entry>
+	
+	<entry key="fi">fi.xml</entry>
+	<entry key="fi-FI">fi.xml</entry>
+	
+	<entry key="af">af.xml</entry>
+	
+	<entry key="hy">hy.xml</entry>
+	
+	<entry key="as">as.xml</entry>
+	
+	<entry key="eu">eu.xml</entry>
+	
+	<entry key="bn">bn.xml</entry>
+	
+	<entry key="bg">bg.xml</entry>
+	
+	<entry key="ca">ca.xml</entry>
+	
+	<entry key="zh-latn">zh-latn.xml</entry>
+	
+	<entry key="hr">hr.xml</entry>
+	
+	<entry key="cs">cs.xml</entry>
+	
+	<entry key="da">da.xml</entry>
+	
+	<entry key="nl">nl.xml</entry>
+	
+	<entry key="eo">eo.xml</entry>
+	
+	<entry key="et">et.xml</entry>
+	
+	<entry key="gl">gl.xml</entry>
+	
+	<entry key="gu">gu.xml</entry>
+	
+	<entry key="hi">hi.xml</entry>
+	
+	<entry key="hu">hu.xml</entry>
+	
+	<entry key="is">is.xml</entry>
+	
+	<entry key="id">id.xml</entry>
+	
+	<entry key="ia">ia.xml</entry>
+	
+	<entry key="ga">ga.xml</entry>
+	
+	<entry key="it">it.xml</entry>
+	
+	<entry key="kn">kn.xml</entry>
+	
+	<entry key="lo">lo.xml</entry>
+	
+	<entry key="la">la.xml</entry>
+	
+	<entry key="lv">lv.xml</entry>
+	
+	<entry key="lt">lt.xml</entry>
+	
+	<entry key="ml">ml.xml</entry>
+	
+	<entry key="mr">mr.xml</entry>
+		
+	<entry key="nb">nb.xml</entry>
+	
+	<entry key="nn">nn.xml</entry>
+	
+	<entry key="or">or.xml</entry>
+	
+	<entry key="pa">pa.xml</entry>
+	
+	<entry key="pl">pl.xml</entry>
+	
+	<entry key="pt">pt.xml</entry>
+	
+	<entry key="ro">ro.xml</entry>
+	
+	<entry key="ru">ru.xml</entry>
+	
+	<entry key="sa">sa.xml</entry>
+	
+	<entry key="sr-latn">sr-latn.xml</entry>
+	
+	<entry key="sl">sl.xml</entry>
+
+	<entry key="es">es.xml</entry>
+	
+	<entry key="ta">ta.xml</entry>
+	
+	<entry key="te">te.xml</entry>
+	
+	<entry key="tr">tr.xml</entry>
+	
+	<entry key="tk">tk.xml</entry>
+	
+	<entry key="uk">uk.xml</entry>
+	
+	<entry key="cy">cy.xml</entry>
+
+</properties>

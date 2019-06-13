@@ -2,6 +2,7 @@ package org.daisy.dotify.hyphenator.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Properties;
@@ -16,14 +17,15 @@ import java.util.logging.Logger;
 public class LatexRulesLocator {
 	private final Logger logger;
 	private final Properties locales = new Properties();
+	private final URL localesURL;
 	
 	/**
 	 * Creates a new instance.
 	 */
 	public LatexRulesLocator() {
 		logger = Logger.getLogger(this.getClass().getCanonicalName());
+		localesURL = getCatalogResourceURL();
 		try {
-	        URL localesURL = getCatalogResourceURL();
 	        if(localesURL!=null){
 	        	locales.loadFromXML(localesURL.openStream());
 	        } else {
@@ -34,8 +36,12 @@ public class LatexRulesLocator {
 		}
 	}
 
-	private URL getCatalogResourceURL() throws FileNotFoundException {
-		return getResource("hyphenation-catalog.xml");
+	private URL getCatalogResourceURL() {
+		try {
+			return getResource("resource-files/hyphenation-catalog.xml");
+		} catch (FileNotFoundException e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -67,9 +73,9 @@ public class LatexRulesLocator {
         } else {
         	Properties p = new Properties();
         	try {
-				p.loadFromXML(getResource(languageFileRelativePath).openStream());
+				p.loadFromXML(localesURL.toURI().resolve(".").resolve(languageFileRelativePath).toURL().openStream());
 				return p;
-			} catch (IOException e) {
+			} catch (IOException | URISyntaxException e) {
 				logger.log(Level.WARNING, "Failed to read properties file: " + languageFileRelativePath, e);
 			}
         	return null;
